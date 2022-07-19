@@ -1,0 +1,128 @@
+---
+sidebar: sidebar 
+permalink: task_launching_azure_mktp.html 
+keywords: install, installation, installing, marketplace, azure, deploy, virtual machine, permissions 
+summary: 'Il est préférable de déployer Cloud Manager dans Azure à l"aide de NetApp Cloud Central , mais vous pouvez le déployer à partir du marché Azure Marketplace, si nécessaire.' 
+---
+= Déploiement de Cloud Manager à partir d'Azure Marketplace
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Il est recommandé de déployer Cloud Manager dans Azure à l'aide de https://cloud.netapp.com["NetApp Cloud Central"^], Mais vous pouvez le déployer à partir d'Azure Marketplace, si nécessaire.
+
+Des instructions distinctes sont disponibles pour déployer Cloud Manager dans le link:task_installing_azure_gov.html["Les régions du gouvernement des États-Unis Azure"] et po link:task_installing_azure_germany.html["Les régions Azure Germany"].
+
+
+TIP: Si vous déployez Cloud Manager à partir d'Azure Marketplace, Cloud Manager est toujours intégré à NetApp Cloud Central. link:concept_cloud_central.html["En savoir plus sur l'intégration"].
+
+
+
+== Déploiement de Cloud Manager dans Azure
+
+Vous devez installer et configurer Cloud Manager afin de pouvoir l'utiliser pour lancer Cloud Volumes ONTAP dans Azure.
+
+.Étapes
+. https://azure.microsoft.com/en-us/marketplace/partners/netapp/netapp-oncommand-cloud-manager/["Accédez à la page Azure Marketplace pour Cloud Manager"^].
+. Cliquez sur *l'obtenir maintenant*, puis sur *Continuer*.
+. Sur le portail Azure, cliquez sur *Créer* et suivez les étapes de configuration de la machine virtuelle.
++
+Noter les éléments suivants lors de la configuration de la machine virtuelle :
+
++
+** Cloud Manager peut fonctionner de manière optimale avec des disques durs ou SSD.
+** Choisissez l'une des tailles de machine virtuelle recommandées : A2, D2 v2 ou D2 v3 (selon disponibilité).
+** Pour le groupe de sécurité réseau, Cloud Manager nécessite des connexions entrantes via SSH, HTTP et HTTPS.
++
+link:reference_security_groups_azure.html["En savoir plus sur les règles de groupe de sécurité pour Cloud Manager"].
+
+** Sous *Management*, activez *System Assigned Managed Identity* pour Cloud Manager en sélectionnant *On*.
++
+Ce paramètre est important, car une identité gérée permet à la machine virtuelle de Cloud Manager de s'identifier à Azure Active Directory sans fournir d'informations d'identification. https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["En savoir plus sur les identités gérées pour les ressources Azure"^].
+
+
+
+. Dans la page *Revue + créer*, vérifiez vos sélections et cliquez sur *Créer* pour démarrer le déploiement.
++
+Azure déploie la machine virtuelle avec les paramètres spécifiés. La machine virtuelle et le logiciel Cloud Manager doivent être exécutés en cinq minutes environ.
+
+. Ouvrez un navigateur Web à partir d'un hôte qui dispose d'une connexion à la machine virtuelle Cloud Manager et entrez l'URL suivante :
++
+http://_ipaddress_:80[]
+
+. Une fois connecté, configurez Cloud Manager :
++
+.. Spécifiez le compte Cloud Central à associer à ce système Cloud Manager.
++
+link:concept_cloud_central_accounts.html["Découvrez les comptes Cloud Central"].
+
+.. Entrez un nom pour le système.
++
+image:screenshot_set_up_cloud_manager.gif["Capture d'écran de l'écran de configuration de Cloud Manager qui permet de sélectionner un compte Cloud Central et de nommer le système Cloud Manager."]
+
+
+
+
+
+Cloud Manager est maintenant installé et configuré. Vous devez accorder des autorisations Azure avant que les utilisateurs puissent déployer Cloud Volumes ONTAP dans Azure.
+
+
+
+== Octroi d'autorisations Azure à Cloud Manager
+
+Lorsque vous avez déployé Cloud Manager dans Azure, vous devez avoir activé une https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["identité gérée attribuée par le système"^]. Vous devez maintenant accorder les autorisations Azure requises en créant un rôle personnalisé, puis en attribuant le rôle à la machine virtuelle Cloud Manager pour un ou plusieurs abonnements.
+
+.Étapes
+. Créez un rôle personnalisé à l'aide de la stratégie Cloud Manager :
++
+.. Téléchargez le https://mysupport.netapp.com/cloudontap/iampolicies["Politique de Cloud Manager Azure"^].
+.. Modifiez le fichier JSON en ajoutant des identifiants d'abonnement Azure à l'étendue assignable.
++
+Vous devez ajouter l'ID de chaque abonnement Azure à partir duquel les utilisateurs créeront des systèmes Cloud Volumes ONTAP.
+
++
+*Exemple*
+
++
+« Assigner les Scopes » : [ »/abonnements/d333af45-0d07-4154-943d-c25fbzzzzzzzzzzz », «/abonnements/54b91999-b3e6-4599-908e-416e0zzzzzzz », «/abonnements/8e474b-94b-4b-4b-4b-4b-4439-4b-4b-4b-4b-4b-4b-4b-4b-4b-4b-
+
+.. Utilisez le fichier JSON pour créer un rôle personnalisé dans Azure.
++
+L'exemple suivant montre comment créer un rôle personnalisé à l'aide de l'interface de ligne de commande Azure CLI 2.0 :
+
++
+*Définition de rôle az create --role-definition C:\Policy_for_Cloud_Manager_Azure_3.7.4.json*
+
++
+Vous devez maintenant disposer d'un rôle personnalisé appelé OnCommand Cloud Manager Operator que vous pouvez attribuer à la machine virtuelle Cloud Manager.
+
+
+
+. Attribuez le rôle à la machine virtuelle Cloud Manager pour un ou plusieurs abonnements :
++
+.. Ouvrez le service *abonnements*, puis sélectionnez l'abonnement dans lequel vous souhaitez déployer des systèmes Cloud Volumes ONTAP.
+.. Cliquez sur *contrôle d'accès (IAM)*.
+.. Cliquez sur *Ajouter* > *Ajouter une affectation de rôle*, puis ajoutez les autorisations suivantes :
++
+*** Sélectionnez le rôle *opérateur OnCommand Cloud Manager*.
++
+
+NOTE: L'opérateur OnCommand Cloud Manager est le nom par défaut fourni dans https://mysupport.netapp.com/info/web/ECMP11022837.html["Politique de Cloud Manager"]. Si vous avez choisi un autre nom pour le rôle, sélectionnez-le à la place.
+
+*** Attribuez l'accès à une *machine virtuelle*.
+*** Sélectionnez l'abonnement dans lequel la machine virtuelle Cloud Manager a été créée.
+*** Sélectionnez la machine virtuelle Cloud Manager.
+*** Cliquez sur *Enregistrer*.
+
+
+.. Si vous souhaitez déployer Cloud Volumes ONTAP à partir d'abonnements supplémentaires, passez à cet abonnement, puis répétez ces étapes.
+
+
+
+
+Cloud Manager dispose désormais des autorisations dont il a besoin pour déployer et gérer Cloud Volumes ONTAP dans Azure.

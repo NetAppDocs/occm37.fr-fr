@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: concept_evaluating.html 
+keywords: free trial, evaluation, evaluate 
+summary: 'Vous pouvez évaluer Cloud Volumes ONTAP avant d"investir dans le logiciel.' 
+---
+= L'évaluation
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez évaluer Cloud Volumes ONTAP avant d'investir dans le logiciel.
+
+Une version d'essai gratuite de 30 jours est disponible sur un système Cloud Volumes ONTAP à un seul nœud https://cloud.netapp.com["NetApp Cloud Central"^]. Il n'y a pas de frais logiciels à l'heure, mais des frais d'infrastructure s'appliquent toujours. Un essai gratuit est automatiquement converti en abonnement horaire payé à la date d'expiration.
+
+Si vous avez besoin d'aide concernant votre démonstration de faisabilité, contactez https://cloud.netapp.com/contact-cds["Les équipes commerciales"^] ou accédez à l'option de chat disponible sur https://cloud.netapp.com["NetApp Cloud Central"^] Et depuis Cloud Manager.

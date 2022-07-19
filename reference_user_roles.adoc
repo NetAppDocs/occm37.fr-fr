@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: reference_user_roles.html 
+keywords: user, users, roles, role, task, permission, permissions, tasks, admin, Account Admin, Workspace Admin 
+summary: 'Les rôles Administrateur de compte et Administrateur d"espace de travail fournissent des autorisations spécifiques aux utilisateurs.' 
+translate: false 
+---
+= Rôles
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les rôles Administrateur de compte et Administrateur d'espace de travail fournissent des autorisations spécifiques aux utilisateurs.
+
+[cols="34,33,33"]
+|===
+| Tâche | Administrateur du compte | Administrateur de l'espace de travail 
+
+
+| Gérer les environnements de travail | Oui. | Oui, pour les espaces de travail associés 
+
+
+| Afficher l'état de la réplication des données | Oui. | Oui, pour les espaces de travail associés 
+
+
+| Afficher la chronologie | Oui. | Oui, pour les espaces de travail associés 
+
+
+| Supprimer les environnements de travail | Oui. | Non 
+
+
+| Connectez les clusters Kubernetes à Cloud Volumes ONTAP | Oui. | Non 
+
+
+| Recevoir le rapport Cloud Volumes ONTAP | Oui. | Non 
+
+
+| Gérez les comptes Cloud Central | Oui. | Non 
+
+
+| Gérez les comptes des fournisseurs cloud | Oui. | Non 
+
+
+| Modifiez les paramètres de Cloud Manager | Oui. | Non 
+
+
+| Afficher et gérer le tableau de bord du support | Oui. | Non 
+
+
+| Supprimez les environnements de travail de Cloud Manager | Oui. | Non 
+
+
+| Mettez à jour Cloud Manager | Oui. | Non 
+
+
+| Installez un certificat HTTPS | Oui. | Non 
+
+
+| Configurez Active Directory | Oui. | Non 
+|===
+.Liens connexes
+* link:task_setting_up_cloud_central_accounts.html["Configuration d'espaces de travail et d'utilisateurs sur le compte Cloud Central"]
+* link:task_managing_cloud_central_accounts.html["Gestion des espaces de travail et des utilisateurs sur le compte Cloud Central"]
+

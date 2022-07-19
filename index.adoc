@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: index.html 
+summary: Bienvenue sur le portail de documentation de Cloud Manager et Cloud Volumes ONTAP. 
+---
+= Documentation sur Cloud Manager et Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+Avec Cloud Manager, vous pouvez déployer et gérer NetApp Cloud Volumes ONTAP, une solution de gestion des données qui assure la protection, la visibilité et le contrôle de vos charges de travail cloud.
+
+
+
+== Découvrez les nouveautés
+
+* link:reference_new_occm.html["Nouveautés de Cloud Manager"]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_97.html["Nouveautés de Cloud Volumes ONTAP"^]
+
+
+
+
+== Commencez
+
+* link:task_getting_started_aws.html["Commencez dans AWS"]
+* link:task_getting_started_azure.html["Commencez à Azure"]
+* link:task_getting_started_gcp.html["Lancez-vous dans Google Cloud Platform"]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html["Recherchez les configurations prises en charge pour Cloud Volumes ONTAP"^]
+* link:reference_networking_cloud_manager.html["Examinez les exigences de mise en réseau pour Cloud Manager"]
+* link:reference_networking_aws.html["Analyse des exigences réseau pour Cloud Volumes ONTAP pour AWS"]
+* link:reference_networking_azure.html["Étude des exigences réseau pour Cloud Volumes ONTAP pour Azure"]
+* link:reference_networking_gcp.html["Étude des exigences de mise en réseau pour Cloud Volumes ONTAP pour GCP"]
+* link:task_planning_your_config.html["Planifiez votre configuration Cloud Volumes ONTAP"]
+
+
+
+
+== Automatisez avec les API
+
+* link:api.html["Guide du développeur API"^]
+* link:reference_infrastructure_as_code.html["Échantillons d'automatisation"]
+
+
+
+
+== Connectez-vous avec vos pairs, obtenez de l'aide et trouvez plus d'informations
+
+* https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS["Communauté NetApp : services de données cloud"^]
+* https://mysupport.netapp.com/cloudontap["Prise en charge de NetApp Cloud Volumes ONTAP"^]
+* link:reference_additional_info.html["Où obtenir de l'aide et trouver plus d'informations"]
+

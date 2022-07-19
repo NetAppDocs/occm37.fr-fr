@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: task_encrypting_volumes.html 
+keywords: encrypt, encryption, data, volumes, netapp volume encryption, volume encryption, nve, key managers, kmip, key management servers, license, ssl certificates 
+summary: 'NetApp Volume Encryption est une technologie logicielle de chiffrement des données au repos d"un volume à la fois. Les données, les copies Snapshot et les métadonnées sont chiffrées. L"accès aux données est donné par une clé XTS-AES-256 unique, une par volume.' 
+---
+= Chiffrement de volumes avec NetApp Volume Encryption
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NetApp Volume Encryption (NVE) est une technologie logicielle de chiffrement des données au repos d'un volume à la fois. Les données, les copies Snapshot et les métadonnées sont chiffrées. L'accès aux données est donné par une clé XTS-AES-256 unique, une par volume.
+
+.Description de la tâche
+* Depuis la version Cloud Manager 3.7.1, une licence NetApp Volume Encryption est automatiquement installée sur chaque système Cloud Volumes ONTAP enregistré auprès du support NetApp.
++
+** link:task_adding_nss_accounts.html["Ajout de comptes du site de support NetApp à Cloud Manager"]
+** link:task_registering.html["Enregistrement des systèmes de paiement à l'utilisation"]
++
+
+NOTE: Cloud Manager n'installe pas la licence NVE sur les systèmes de la région Chine.
+
+
+
+* Pour l'instant, Cloud Volumes ONTAP prend en charge NetApp Volume Encryption avec un serveur de gestion externe des clés. Un gestionnaire de clés intégré n'est pas pris en charge.
+* Vous devez configurer NetApp Volume Encryption à partir de l'interface de ligne de commande d'ONTAP.
++
+Vous pouvez ensuite utiliser soit l'interface de ligne de commandes, soit System Manager pour activer le chiffrement sur des volumes spécifiques. Cloud Manager ne prend pas en charge NetApp Volume Encryption à partir de son interface utilisateur et de ses API.
+
+
+
+link:concept_security.html["En savoir plus sur les technologies de cryptage prises en charge"].
+
+.Étapes
+. Consultez la liste des gestionnaires de clés pris en charge dans le http://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"^].
++
+
+TIP: Recherchez la solution *gestionnaires de clés*.
+
+. link:task_connecting_to_otc.html["Connectez-vous à l'interface de ligne de commandes de Cloud Volumes ONTAP"^].
+. Installez les certificats SSL et connectez-vous aux serveurs de gestion des clés externes.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-DD718B42-038D-4009-84FF-20BBD6530BC2.html["Guide d'alimentation du cryptage ONTAP 9 NetApp : configuration de la gestion externe des clés"^]
+
+. Créez un nouveau volume chiffré ou convertissez un volume non chiffré existant à l'aide de l'interface de ligne de commande ou de System Manager.
++
+** CLI :
++
+*** Pour les nouveaux volumes, utilisez la commande *volume create* avec le paramètre -crypt.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-A5D3FDEF-CA10-4A54-9E17-DB9E9954082E.html["Guide d'alimentation de ONTAP 9 NetApp Encryption : activation du chiffrement sur un nouveau volume"^]
+
+*** Pour les volumes existants, utilisez la commande *Volume Encryption conversion start*.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1468CE48-A0D9-4D45-BF78-A11C26724051.html["Guide d'alimentation du chiffrement NetApp ONTAP 9 : activation du chiffrement sur un volume existant à l'aide de la commande de démarrage de la conversion du chiffrement de volume"^]
+
+
+
+** System Manager :
++
+*** Pour les nouveaux volumes, cliquez sur *stockage > volumes > Créer > Créer FlexVol*, puis sélectionnez *crypté*.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-950/GUID-3FA865E2-AE14-40A9-BF76-A2D7EB44D387.html["ONTAP 9 gestion des clusters à l'aide de System Manager : création de volumes FlexVol"^]
+
+*** Pour les volumes existants, sélectionnez le volume, cliquez sur *Modifier*, puis sélectionnez *crypté*.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-950/GUID-906E88E4-8CE9-465F-8AC7-0C089080B2C5.html["ONTAP 9 gestion des clusters à l'aide de System Manager : modification des propriétés de volume"^]
+
+
+
+
+
+

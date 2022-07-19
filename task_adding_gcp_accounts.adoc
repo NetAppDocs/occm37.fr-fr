@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: task_adding_gcp_accounts.html 
+keywords: permissions, gcp, data tiering, tiering, setup, requirements, account for data tiering, account for tiering, interoperable, interoperability, interoperable storage access keys, access keys 
+summary: 'L"ajout d"un compte Google Cloud Platform à Cloud Manager permet le Tiering des données sur un système Cloud Volumes ONTAP. Le Tiering des données transfère automatiquement les données inactives vers un stockage objet plus économique, ce qui vous permet de récupérer de l"espace dans votre stockage primaire et de réduire le stockage secondaire.' 
+---
+= Configuration et ajout de comptes GCP dans Cloud Manager
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vous souhaitez activer link:concept_data_tiering.html["tiering des données"] Sur un système Cloud Volumes ONTAP, vous devez fournir à Cloud Manager une clé d'accès de stockage pour un compte de service disposant d'autorisations d'administrateur de stockage. Cloud Manager utilise les clés d'accès pour configurer et gérer un compartiment de stockage cloud pour le Tiering des données.
+
+
+
+== Configurer un compte de service et des clés d'accès pour Google Cloud Storage
+
+Un compte de service permet à Cloud Manager d'authentifier et d'accéder aux compartiments Cloud Storage utilisés pour le Tiering des données. Les clés sont requises pour que Google Cloud Storage sache qui effectue la demande.
+
+.Étapes
+. Ouvrez la console IAM GCP et https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role["Créez un compte de service avec le rôle d'administrateur du stockage"^].
++
+image:screenshot_gcp_service_account_role.gif["Capture d'écran de la console IAM GCP avec sélection du rôle d'administrateur de stockage pour un compte de service."]
+
+. Accédez à https://console.cloud.google.com/storage/settings["Paramètres de stockage GCP"^].
+. Si vous y êtes invité, sélectionnez un projet.
+. Cliquez sur l'onglet *Interoperability*.
+. Si ce n'est déjà fait, cliquez sur *Activer l'accès à l'interopérabilité*.
+. Sous *clés d'accès pour les comptes de service*, cliquez sur *Créer une clé pour un compte de service*.
+. Sélectionnez le compte de service que vous avez créé à l'étape 1.
++
+image:screenshot_gcp_access_key.gif["Copie d'écran de la console de stockage GCP affichant un compte de service sélectionné pour une nouvelle clé d'accès."]
+
+. Cliquez sur *Créer clé*.
+. Copiez la clé d'accès et le secret.
++
+Lorsque vous ajoutez le compte GCP pour le Tiering des données, vous devez entrer ces informations dans Cloud Manager.
+
+
+
+
+
+== Ajout d'un compte GCP à Cloud Manager
+
+Vous pouvez désormais ajouter cette clé à Cloud Manager.
+
+.Étapes
+. Dans le coin supérieur droit de la console Cloud Manager, cliquez sur l'icône Paramètres et sélectionnez *Cloud Provider & support Accounts*.
++
+image:screenshot_settings_icon.gif["Copie d'écran affichant l'icône Paramètres en haut à droite de la console Cloud Manager."]
+
+. Cliquez sur *Ajouter un nouveau compte* et sélectionnez *GCP*.
+. Saisissez la clé d'accès et le secret du compte de service.
++
+Les clés permettent à Cloud Manager de configurer un compartiment Cloud Storage pour le Tiering des données.
+
+. Vérifiez que les exigences de la stratégie ont été respectées, puis cliquez sur *Créer un compte*.
+
+
+Vous pouvez désormais activer le Tiering des données sur les volumes individuels lorsque vous les créez, les modifiez ou les répliquez. Pour plus de détails, voir link:task_tiering.html["Tiering des données inactives vers un stockage objet à faible coût"].
+
+Mais avant cela, assurez-vous que le sous-réseau dans lequel réside Cloud Volumes ONTAP est configuré pour un accès privé à Google. Pour obtenir des instructions, reportez-vous à la section https://cloud.google.com/vpc/docs/configure-private-google-access["Documentation Google Cloud : configuration de Private Google Access"^].

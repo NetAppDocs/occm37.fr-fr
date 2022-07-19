@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: reference_before.html 
+keywords: prerequisites, requirements, before 
+summary: 'Avant d"utiliser Cloud Manager pour créer et gérer des systèmes Cloud Volumes ONTAP, votre administrateur Cloud Manager doit avoir préparé la mise en réseau et installé et configuré Cloud Manager.' 
+---
+= Avant de créer des systèmes Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avant d'utiliser Cloud Manager pour créer et gérer des systèmes Cloud Volumes ONTAP, votre administrateur Cloud Manager doit avoir préparé la mise en réseau et installé et configuré Cloud Manager.
+
+Les conditions suivantes doivent exister avant de commencer à déployer Cloud Volumes ONTAP :
+
+* Les exigences de mise en réseau ont été satisfaites pour Cloud Manager et Cloud Volumes ONTAP.
+* Cloud Manager dispose d'autorisations pour effectuer des opérations dans le fournisseur cloud de votre choix.
+* Pour AWS, vous êtes abonné à la page AWS Marketplace appropriée :
++
+** Si vous souhaitez déployer un système PAYGO ou activer une fonction d'extension : https://aws.amazon.com/marketplace/pp/B07QX2QLXX["Sur la page Cloud Manager (pour Cloud Volumes ONTAP)"^].
+** Pour déployer un système BYOL : https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=cloud+volumes+ontap+byol["Sur AWS Marketplace, le seul nœud ou la page HA"^].
+
+
+* Cloud Manager a été installé.
+
+
+.Liens connexes
+* link:task_getting_started_aws.html["Mise en route dans AWS"]
+* link:task_getting_started_azure.html["Mise en route dans Azure"]
+* link:task_getting_started_gcp.html["Mise en route dans GCP"]
+* link:task_setting_up_cloud_manager.html["Configuration de Cloud Manager"]
+

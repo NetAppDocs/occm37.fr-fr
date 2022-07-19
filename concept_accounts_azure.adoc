@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: concept_accounts_azure.html 
+keywords: cloud provider accounts, azure, azure accounts, service principal, multiple accounts, permissions, policy, policies, subscriptions 
+summary: 'Cloud Manager vous permet de choisir le compte Azure dans lequel vous souhaitez déployer un système Cloud Volumes ONTAP. Vous pouvez déployer tous les systèmes Cloud Volumes ONTAP sur le compte Azure initial, ou configurer d"autres comptes.' 
+---
+= Comptes et autorisations Azure
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager vous permet de choisir le compte Azure dans lequel vous souhaitez déployer un système Cloud Volumes ONTAP. Vous pouvez déployer tous les systèmes Cloud Volumes ONTAP sur le compte Azure initial, ou configurer d'autres comptes.
+
+
+
+== Compte Azure initial
+
+Lorsque vous déployez Cloud Manager à partir de NetApp Cloud Central, vous devez utiliser un compte Azure disposant des autorisations nécessaires pour déployer la machine virtuelle Cloud Manager. Les autorisations requises sont répertoriées dans le https://mysupport.netapp.com/cloudontap/iampolicies["Politique NetApp Cloud Central pour Azure"^].
+
+Lorsque Cloud Central déploie la machine virtuelle Cloud Manager dans Azure, il active une https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["identité gérée attribuée par le système"^] Sur la machine virtuelle Cloud Manager, crée un rôle personnalisé et le attribue à la machine virtuelle. Le rôle fournit à Cloud Manager les autorisations de déploiement et de gestion de Cloud Volumes ONTAP dans cet abonnement Azure. link:reference_permissions.html#what-cloud-manager-does-with-azure-permissions["Examinez comment Cloud Manager utilise les autorisations"].
+
+image:diagram_permissions_initial_azure.png["Image conceptuelle qui montre Cloud Central déployant Cloud Manager dans un compte Azure et un abonnement. Une identité gérée attribuée par le système est activée et un rôle personnalisé est attribué à la machine virtuelle Cloud Manager."]
+
+Cloud Manager sélectionne par défaut ce compte de fournisseur cloud lors de la création d'un nouvel environnement de travail :
+
+image:screenshot_accounts_select_azure.gif["Capture d'écran indiquant l'option changer de compte dans la page Détails et AMP ; informations d'identification."]
+
+
+
+== Abonnements Azure supplémentaires pour le compte initial
+
+L'identité gérée est associée à l'abonnement dans lequel vous avez lancé Cloud Manager. Si vous souhaitez sélectionner un autre abonnement Azure, vous devez le faire link:task_adding_azure_accounts.html#associating-additional-azure-subscriptions-with-a-managed-identity["associez l'identité gérée à ces abonnements"].
+
+
+
+== Autres comptes Azure
+
+Si vous souhaitez déployer Cloud Volumes ONTAP sur différents comptes Azure, vous devez accorder les autorisations requises par link:task_adding_azure_accounts.html["Création et configuration d'une entité de service dans Azure Active Directory"] Pour chaque compte Azure. L'image suivante montre deux comptes supplémentaires, chacun étant doté d'un rôle principal de service et personnalisé qui fournit des autorisations :
+
+image:diagram_permissions_multiple_azure.png["Image conceptuelle qui affiche le compte Azure initial, qui reçoit des autorisations par le biais d'un rôle personnalisé et d'une identité gérée, et deux comptes supplémentaires qui reçoivent des autorisations par l'intermédiaire d'un rôle et d'un entité de service personnalisés."]
+
+Vous le feriez alors link:task_adding_azure_accounts.html#adding-azure-accounts-to-cloud-manager["Ajoutez les comptes des fournisseurs de services clouds à Cloud Manager"] En fournissant des détails sur le principal du service AD.
+
+Après avoir ajouté un autre compte, vous pouvez le basculer lors de la création d'un nouvel environnement de travail :
+
+image:screenshot_accounts_switch_azure.gif["Capture d'écran indiquant la sélection entre les comptes fournisseurs de services cloud après avoir cliqué sur changer de compte dans la page Détails etamp ; informations d'identification."]
+
+.Qu'en est-il des déploiements Marketplace et des déploiements sur site ?
+****
+Les sections ci-dessus décrivent la méthode de déploiement recommandée de NetApp Cloud Central. Vous pouvez également déployer Cloud Manager dans Azure à partir du link:task_launching_azure_mktp.html["Azure Marketplace"], et vous pouvez link:task_installing_linux.html["Installez Cloud Manager sur site"].
+
+Si vous utilisez Marketplace, des autorisations sont fournies de la même manière. Il vous suffit de créer et de configurer manuellement l'identité gérée pour Cloud Manager, puis de fournir des autorisations pour tous les comptes supplémentaires.
+
+Pour les déploiements sur site, vous ne pouvez pas configurer d'identité gérée pour le système Cloud Manager, mais vous pouvez fournir des autorisations comme vous le feriez pour des comptes supplémentaires.
+
+****

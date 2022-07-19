@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: concept_cloud_compliance.html 
+keywords: artificial intelligence, ai, compliance, cloud compliance, dsar, personal data, personal information, sensitive, personal sensitive data, gdpr, scans, scanning 
+summary: 'Cloud Compliance est un service de confidentialité et de conformité des données pour Cloud Volumes ONTAP dans AWS et Azure. Avec la technologie d"intelligence artificielle (IA), Cloud Compliance aide les entreprises à comprendre le contexte des données et à identifier les données sensibles dans vos systèmes Cloud Volumes ONTAP.' 
+---
+= Découvrez Cloud Compliance
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Compliance est un service de confidentialité et de conformité des données pour Cloud Volumes ONTAP dans AWS et Azure. Avec la technologie d'intelligence artificielle (IA), Cloud Compliance aide les entreprises à comprendre le contexte des données et à identifier les données sensibles dans les systèmes Cloud Volumes ONTAP.
+
+Cloud Compliance est actuellement disponible sous forme de version contrôlée.
+
+https://cloud.netapp.com/cloud-compliance["Découvrez les utilisations de Cloud Compliance"^].
+
+
+
+== Caractéristiques
+
+Cloud Compliance fournit plusieurs outils qui vous aideront dans vos efforts de conformité. Vous pouvez utiliser Cloud Compliance pour :
+
+* Identifier les informations à caractère personnel
+* Identifier une vaste gamme d'informations sensibles, conformément aux réglementations en matière de confidentialité RGPD, CCPA, PCI et HIPAA
+* Répondre aux demandes d'accès aux données (DSAR, Data Subject Access Requests)
+
+
+
+
+== Le coût
+
+Cloud Compliance est un service complémentaire proposé par NetApp pour Cloud Volumes ONTAP, sans frais supplémentaires. L'activation de Cloud Compliance nécessite le déploiement d'une instance cloud que votre fournisseur cloud facturera. L'entrée et la sortie des données ne sont pas facturés, car les données ne circulent pas en dehors du réseau.
+
+
+
+== Fonctionnement de Cloud Compliance
+
+À un niveau élevé, Cloud Compliance fonctionne comme ceci :
+
+. Vous activez Cloud Compliance sur un ou plusieurs systèmes Cloud Volumes ONTAP.
+. Cloud Compliance analyse les données à l'aide d'un processus de formation d'IA.
+. Dans Cloud Manager, vous cliquez sur *Compliance* et utilisez le tableau de bord et les outils de reporting fournis pour vous aider dans vos efforts de conformité.
+
+
+
+
+== Instance Cloud Compliance
+
+Lorsque vous activez Cloud Compliance sur un ou plusieurs systèmes Cloud Volumes ONTAP, Cloud Manager déploie une instance Cloud Compliance dans le même VPC ou vNet que le premier système Cloud Volumes ONTAP de la demande.
+
+image:diagram_cloud_compliance_instance.png["Diagramme montrant une instance Cloud Manager et une instance Cloud Compliance s'exécutant dans votre fournisseur cloud."]
+
+Notez les points suivants sur l'instance :
+
+* Dans Azure, Cloud Compliance s'exécute sur une machine virtuelle standard_D16s_v3 avec un disque de 512 Go.
+* Dans AWS, Cloud Compliance s'exécute sur une instance m5.4xlarge avec un disque io1 de 500 Go.
++
+Dans les régions où m5.4xlarge n'est pas disponible, Cloud Compliance s'exécute sur une instance m4.4xlarge.
+
+* L'instance s'appelle _CloudCompliance_ avec un hachage (UUID) généré concaténé. Par exemple : _CloudCompliance-16bb6564-38ad-4080-9a92-36f5fd2f71c7_
+* Une seule instance Cloud Compliance est déployée par système Cloud Manager.
+* Les mises à niveau du logiciel Cloud Compliance sont automatisées ; vous n'avez plus à vous inquiéter.
+
+
+
+TIP: L'instance doit rester en fonctionnement permanent, car Cloud Compliance analyse en continu les données sur les systèmes Cloud Volumes ONTAP.
+
+
+
+== Fonctionnement des acquisitions
+
+Une fois que vous avez activé Cloud Compliance, le service IT commence immédiatement à analyser vos données pour identifier les données personnelles et sensibles.
+
+Cloud Compliance se connecte à Cloud Volumes ONTAP comme tout autre client en montant les volumes NFS et CIFS. Les volumes NFS sont automatiquement accessibles en lecture seule, tandis que vous devez fournir des identifiants Active Directory pour analyser les volumes CIFS.
+
+Cloud Compliance analyse les données non structurées sur chaque volume pour trouver une série de données personnelles. Il mappe les données de votre organisation, classe chaque fichier et identifie et extrait des entités et des modèles prédéfinis dans les données. Cette analyse permet d'obtenir un index des données personnelles, des données personnelles sensibles et des catégories de données.
+
+image:diagram_cloud_compliance_scan.png["Diagramme montrant une instance Cloud Manager et une instance Cloud Compliance s'exécutant dans votre fournisseur cloud. L'instance Cloud Compliance se connecte aux volumes NFS et CIFS pour les analyser."]
+
+Après l'analyse initiale, Cloud Compliance analyse en continu chaque volume pour détecter les modifications incrémentielles (c'est pourquoi il est important de maintenir l'exécution de l'instance).
+
+Vous pouvez activer et désactiver les acquisitions au niveau de l'environnement de travail, mais pas au niveau du volume. link:task_managing_compliance.html["Découvrez comment"].
+
+
+
+== Informations index par Cloud Compliance
+
+Cloud Compliance collecte, index et attribue des catégories aux données non structurées (fichiers). Les données index Cloud Compliance incluent les éléments suivants :
+
+Métadonnées standard:: Cloud Compliance collecte des métadonnées standard sur les fichiers : le type de fichier, sa taille, ses dates de création et de modification, etc.
+Données personnelles:: Informations personnelles identifiables telles que les adresses électroniques, les numéros d'identification ou les numéros de carte de crédit. link:task_controlling_private_data.html#personal-data["En savoir plus sur les données personnelles"].
+Données personnelles sensibles:: Des types spéciaux d'informations sensibles, comme les données de santé, l'origine ethnique ou les opinions politiques, tels que définis par le RGPD et d'autres réglementations sur la confidentialité. link:task_controlling_private_data.html#sensitive-personal-data["En savoir plus sur les données personnelles sensibles"].
+Catégories:: Cloud Compliance divise les données analysées et les divise en plusieurs types de catégories. Les catégories sont des rubriques basées sur l'analyse par IA du contenu et des métadonnées de chaque fichier. link:task_controlling_private_data.html#categories["En savoir plus sur les catégories"].
+Reconnaissance de l'entité de nom:: Cloud Compliance utilise l'IA pour extraire les noms des personnes physiques des documents. link:task_responding_to_dsar.html["Découvrez comment répondre aux demandes d'accès aux données"].
+
+
+
+
+== Présentation du réseau
+
+Cloud Manager déploie l'instance Cloud Compliance avec une adresse IP privée et un groupe de sécurité qui active les connexions HTTP entrantes à partir de Cloud Manager. Cette connexion vous permet d'accéder au tableau de bord Cloud Compliance à partir de l'interface Cloud Manager.
+
+Les règles sortantes sont complètement ouvertes. L'instance se connecte aux systèmes Cloud Volumes ONTAP et à Internet via un proxy depuis Cloud Manager. Un accès Internet est nécessaire pour mettre à niveau le logiciel Cloud Compliance et envoyer des metrics d'utilisation.
+
+Si vous avez des exigences de mise en réseau strictes, link:task_getting_started_compliance.html#reviewing-prerequisites["Découvrez les terminaux contacts par Cloud Compliance"].
+
+
+TIP: Les données indexées ne quittent jamais l'instance Cloud Compliance : les données ne sont pas relayées en dehors de votre réseau virtuel et ne sont pas envoyées à Cloud Manager.
+
+
+
+== Accès des utilisateurs aux informations de conformité
+
+Les administrateurs de Cloud Manager peuvent consulter des informations de conformité pour tous les environnements de travail.
+
+Les administrateurs de l'espace de travail peuvent afficher les informations de conformité uniquement pour les systèmes auxquels ils sont autorisés à accéder. Si un administrateur d'espace de travail ne parvient pas à accéder à un environnement de travail dans Cloud Manager, il ne peut pas voir les informations de conformité de l'environnement de travail dans l'onglet conformité.
+
+link:reference_user_roles.html["En savoir plus sur les rôles de Cloud Manager"].

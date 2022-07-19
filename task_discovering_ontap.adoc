@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: task_discovering_ontap.html 
+keywords: ontap, cluster, discover, manage, provision, provisioning, volumes, add, adding, discovering, fas, aff 
+summary: Cloud Manager peut découvrir les clusters ONTAP dans votre environnement sur site, dans une configuration de stockage privé NetApp et dans IBM Cloud. La découverte de ces clusters vous permet de répliquer facilement des données dans votre environnement cloud hybride directement à partir de Cloud Manager. 
+---
+= Détection et gestion des clusters ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+Cloud Manager peut découvrir les clusters ONTAP dans votre environnement sur site, dans une configuration de stockage privé NetApp et dans IBM Cloud. La découverte de ces clusters vous permet de répliquer facilement des données dans votre environnement cloud hybride directement à partir de Cloud Manager.
+
+
+
+== Découverte des clusters ONTAP
+
+La découverte d'un cluster ONTAP dans Cloud Manager vous permet de provisionner du stockage et de répliquer des données sur votre cloud hybride.
+
+Pour ajouter le cluster à Cloud Manager, vous devez disposer de l'adresse IP de gestion du cluster et du mot de passe du compte utilisateur admin.
+
+Cloud Manager détecte les clusters ONTAP à l'aide de HTTPS. Si vous utilisez des stratégies de pare-feu personnalisées, elles doivent répondre aux exigences suivantes :
+
+* L'hôte Cloud Manager doit autoriser l'accès HTTPS sortant via le port 443.
++
+Si Cloud Manager est dans AWS, toutes les communications sortantes sont autorisées par le groupe de sécurité prédéfini.
+
+* Le cluster ONTAP doit autoriser l'accès HTTPS entrant via le port 443.
++
+La stratégie de pare-feu " mgmt " par défaut permet l'accès HTTPS entrant à partir de toutes les adresses IP. Si vous avez modifié cette stratégie par défaut ou si vous avez créé votre propre stratégie de pare-feu, vous devez associer le protocole HTTPS à cette stratégie et activer l'accès à partir de l'hôte Cloud Manager.
+
+
+
+.Étapes
+. Sur la page environnements de travail, cliquez sur *découvrir* et sélectionnez *Cluster ONTAP*.
+. Sur la page *ONTAP Détails du cluster*, entrez l'adresse IP de gestion du cluster, le mot de passe du compte utilisateur admin et l'emplacement du cluster.
++
+image:screenshot_discover_ontap.gif["Copie d'écran montrant un exemple de page des détails du cluster ONTAP : l'adresse IP de gestion du cluster, le nom d'utilisateur et le mot de passe, ainsi que sur site sélectionné comme emplacement du cluster."]
+
+. Sur la page Détails, entrez un nom et une description pour l'environnement de travail, puis cliquez sur *Go*.
+
+
+Cloud Manager détecte le cluster. Vous pouvez désormais créer des volumes, répliquer des données vers et depuis le cluster et lancer OnCommand System Manager pour effectuer des tâches avancées.
+
+
+
+== Provisionnement des volumes sur des clusters ONTAP
+
+Cloud Manager vous permet de provisionner des volumes NFS et CIFS sur des clusters ONTAP.
+
+NFS ou CIFS doivent être configurés sur le cluster. Vous pouvez configurer NFS et CIFS à l'aide de System Manager ou de l'interface de ligne de commande.
+
+Vous pouvez créer des volumes sur des agrégats existants. Vous ne pouvez pas créer de nouveaux agrégats à partir de Cloud Manager.
+
+.Étapes
+. Sur la page Working Environments, double-cliquez sur le nom du cluster ONTAP sur lequel vous souhaitez provisionner des volumes.
+. Cliquez sur *Ajouter nouveau volume*.
+. Sur la page Créer un nouveau volume, entrez les détails du volume, puis cliquez sur *Créer*.
++
+Certains champs de cette page sont explicites. Le tableau suivant décrit les champs pour lesquels vous pouvez avoir besoin de conseils :
+
++
+[cols="2,6"]
+|===
+| Champ | Description 
+
+
+| Taille | La taille maximale que vous pouvez saisir dépend en grande partie de l'activation du provisionnement fin, ce qui vous permet de créer un volume plus grand que le stockage physique actuellement disponible. 
+
+
+| Contrôle d'accès (pour NFS uniquement) | Une stratégie d'exportation définit les clients du sous-réseau qui peuvent accéder au volume. Par défaut, Cloud Manager entre une valeur qui donne accès à toutes les instances du sous-réseau. 
+
+
+| Autorisations et utilisateurs/groupes (pour CIFS uniquement) | Ces champs vous permettent de contrôler le niveau d'accès à un partage pour les utilisateurs et les groupes (également appelés listes de contrôle d'accès ou ACL). Vous pouvez spécifier des utilisateurs ou des groupes Windows locaux ou de domaine, ou des utilisateurs ou des groupes UNIX. Si vous spécifiez un nom d'utilisateur Windows de domaine, vous devez inclure le domaine de l'utilisateur à l'aide du format domaine\nom d'utilisateur. 
+
+
+| Profil d'utilisation | Les profils d'utilisation définissent les fonctionnalités d'efficacité du stockage NetApp qui sont activées pour un volume. 
+
+
+| Stratégie Snapshot | Une stratégie de copie Snapshot spécifie la fréquence et le nombre de copies Snapshot créées automatiquement. Une copie Snapshot de NetApp est une image système de fichiers instantanée qui n'a aucun impact sur les performances et nécessite un stockage minimal. Vous pouvez choisir la règle par défaut ou aucune. Vous pouvez en choisir aucune pour les données transitoires : par exemple, tempdb pour Microsoft SQL Server. 
+|===
+

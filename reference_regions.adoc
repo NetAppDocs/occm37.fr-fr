@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: reference_regions.html 
+keywords: region, regions, mumbai, seoul, singapore, sydney, tokyo, frankfurt, paris, london, ireland, canada, govcloud, us east, us west, sao paulo, australia, japan, korea, southeast asia, east asia, germany, north europe, uk south, uk west, west europe, canada, central us, east us, north central, south central, west us, west central 
+summary: Cloud Manager et Cloud Volumes ONTAP sont pris en charge dans un certain nombre de régions AWS et Microsoft Azure. 
+---
+= Régions prises en charge
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager et Cloud Volumes ONTAP sont pris en charge dans un certain nombre de régions AWS et Microsoft Azure.
+
+https://cloud.netapp.com/cloud-volumes-global-regions["Cliquez ici pour afficher la liste des régions prises en charge"^].
