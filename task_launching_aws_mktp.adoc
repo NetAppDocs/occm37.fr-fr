@@ -19,6 +19,7 @@ Il est recommandé de lancer Cloud Manager dans AWS à l'aide de https://cloud.n
 
 TIP: Si vous lancez Cloud Manager à partir d'AWS Marketplace, Cloud Manager est toujours intégré à NetApp Cloud Central. link:concept_cloud_central.html["En savoir plus sur l'intégration"].
 
+.Description de la tâche
 La procédure suivante décrit le lancement de l'instance à partir de la console EC2, car la console vous permet d'associer un rôle IAM à l'instance Cloud Manager. Cela n'est pas possible en utilisant l'action *lancer à partir du site Web*.
 
 .Étapes
@@ -74,4 +75,5 @@ image:screenshot_set_up_cloud_manager.gif["Capture d'écran de l'écran de confi
 
 
 
+.Résultat
 Cloud Manager est maintenant installé et configuré.

@@ -41,8 +41,10 @@ image:screenshot_associate_user.gif["Capture d'écran qui montre comment associe
 . Cliquez sur *associer utilisateur*.
 
 
+.Résultat
 L'utilisateur doit recevoir un e-mail de la part de NetApp Cloud Central intitulé « Account Association ». Il contient les informations nécessaires pour accéder à Cloud Manager.
 
+.Résultat
 L'utilisateur doit recevoir un e-mail de la part de NetApp Cloud Central intitulé « Account Association ». Il contient les informations nécessaires pour accéder à Cloud Manager.
 
 
@@ -60,11 +62,12 @@ image:screenshot_associate_user_workspace.gif["Capture d'écran qui montre le me
 . Cliquez sur *Disassocier utilisateur* et cliquez sur *Disassocier* pour confirmer.
 
 
+.Résultat
 L'utilisateur ne peut plus accéder aux ressources de ce compte Cloud Central.
 
 
 
-== Gestion des espaces de travail d'un Workspace Admin
+== Gestion des espaces de travail d'un administrateur d'espace de travail
 
 Vous pouvez associer et dissocier les administrateurs d'espace de travail avec des espaces de travail à tout moment. L'association de l'utilisateur lui permet de créer et d'afficher les environnements de travail dans cet espace de travail.
 
@@ -78,6 +81,7 @@ image:screenshot_associate_user_workspace.gif["Capture d'écran qui montre le me
 . Sélectionnez les espaces de travail à associer à l'utilisateur et cliquez sur *appliquer*.
 
 
+.Résultat
 Il est désormais possible d'accéder à ces espaces de travail à partir de Cloud Manager, tant que le connecteur de service était également associé aux espaces de travail.
 
 

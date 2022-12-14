@@ -108,6 +108,7 @@ image:screenshot_set_up_cloud_manager.gif["Capture d'écran de l'écran de confi
 
 
 
+.Une fois que vous avez terminé
 Configurez des autorisations pour que Cloud Manager puisse déployer Cloud Volumes ONTAP dans votre fournisseur cloud :
 
 * AWS : link:task_adding_aws_accounts.html["Configurez un compte AWS, puis ajoutez-le à Cloud Manager"].

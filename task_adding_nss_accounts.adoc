@@ -40,6 +40,7 @@ image:screenshot_settings_icon.gif["Copie d'écran affichant l'icône Paramètre
 . Cliquez sur *Créer un compte.*
 
 
+.Et la suite ?
 Les utilisateurs peuvent désormais sélectionner le compte lors de la création de nouveaux systèmes Cloud Volumes ONTAP et lors de l'enregistrement de systèmes existants.
 
 * link:task_deploying_otc_aws.html["Lancement d'Cloud Volumes ONTAP dans AWS"]

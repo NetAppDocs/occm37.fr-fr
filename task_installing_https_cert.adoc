@@ -53,6 +53,7 @@ Le certificat doit utiliser le format X.509 encodé au format PEM (Privacy Enhan
 |===
 
 
+.Résultat
 Cloud Manager utilise désormais le certificat signé par l'autorité de certification pour fournir un accès HTTPS sécurisé. L'image suivante montre un système Cloud Manager configuré pour un accès sécurisé :
 
 image:screenshot_https_cert.gif["Capture d'écran : affiche la page Configuration HTTPS après l'installation d'un certificat signé. La page affiche les propriétés du certificat et une option de renouvellement du certificat."]

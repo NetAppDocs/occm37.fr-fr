@@ -22,6 +22,7 @@ Vous pouvez mettre à jour Cloud Manager vers la dernière version ou avec un co
 
 Cloud Manager peut se mettre à jour automatiquement dès qu'une nouvelle version est disponible. Cela vous permet d'exécuter la dernière version.
 
+.Description de la tâche
 Cloud Manager se met automatiquement à jour à minuit si aucune opération n'est en cours d'exécution.
 
 .Étapes
@@ -35,8 +36,10 @@ Cloud Manager se met automatiquement à jour à minuit si aucune opération n'es
 
 Vous devez activer les mises à jour automatiques de Cloud Manager, mais vous pouvez toujours effectuer une mise à jour manuelle directement à partir de la console Web. Cloud Manager obtient la mise à jour logicielle d'un compartiment S3 appartenant à NetApp dans AWS.
 
+.Avant de commencer
 Vous devriez avoir passé en revue link:reference_new_occm.html["nouveautés de la version"] identifier les nouvelles exigences et les changements en matière de support
 
+.Description de la tâche
 La mise à jour du logiciel prend quelques minutes. Cloud Manager ne sera pas disponible pendant la mise à jour.
 
 .Étapes
@@ -53,6 +56,7 @@ Si des tâches sont en cours, attendez qu'elles se terminent avant de passer à 
 . Complétez la boîte de dialogue de confirmation, puis cliquez sur *OK*.
 
 
+.Résultat
 Cloud Manager démarre le processus de mise à jour. Vous pouvez vous connecter à la console après quelques minutes.
 
 
@@ -61,6 +65,7 @@ Cloud Manager démarre le processus de mise à jour. Vous pouvez vous connecter 
 
 Si NetApp a partagé un correctif avec vous, vous pouvez mettre à jour Cloud Manager avec le correctif fourni directement à partir de la console Web de Cloud Manager.
 
+.Description de la tâche
 La mise à jour du correctif prend généralement quelques minutes. Cloud Manager ne sera pas disponible pendant la mise à jour.
 
 .Étapes
@@ -76,4 +81,5 @@ image:screenshot_patch.gif["Capture d'écran : affiche le lien permettant de met
 . Sélectionnez le correctif que vous avez fourni.
 
 
+.Résultat
 Cloud Manager applique le correctif. Vous pouvez vous connecter à la console après quelques minutes.

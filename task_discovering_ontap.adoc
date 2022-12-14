@@ -21,6 +21,7 @@ Cloud Manager peut découvrir les clusters ONTAP dans votre environnement sur si
 
 La découverte d'un cluster ONTAP dans Cloud Manager vous permet de provisionner du stockage et de répliquer des données sur votre cloud hybride.
 
+.Avant de commencer
 Pour ajouter le cluster à Cloud Manager, vous devez disposer de l'adresse IP de gestion du cluster et du mot de passe du compte utilisateur admin.
 
 Cloud Manager détecte les clusters ONTAP à l'aide de HTTPS. Si vous utilisez des stratégies de pare-feu personnalisées, elles doivent répondre aux exigences suivantes :
@@ -44,6 +45,7 @@ image:screenshot_discover_ontap.gif["Copie d'écran montrant un exemple de page 
 . Sur la page Détails, entrez un nom et une description pour l'environnement de travail, puis cliquez sur *Go*.
 
 
+.Résultat
 Cloud Manager détecte le cluster. Vous pouvez désormais créer des volumes, répliquer des données vers et depuis le cluster et lancer OnCommand System Manager pour effectuer des tâches avancées.
 
 
@@ -52,8 +54,10 @@ Cloud Manager détecte le cluster. Vous pouvez désormais créer des volumes, r�
 
 Cloud Manager vous permet de provisionner des volumes NFS et CIFS sur des clusters ONTAP.
 
+.Avant de commencer
 NFS ou CIFS doivent être configurés sur le cluster. Vous pouvez configurer NFS et CIFS à l'aide de System Manager ou de l'interface de ligne de commande.
 
+.Description de la tâche
 Vous pouvez créer des volumes sur des agrégats existants. Vous ne pouvez pas créer de nouveaux agrégats à partir de Cloud Manager.
 
 .Étapes

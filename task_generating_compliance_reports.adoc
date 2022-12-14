@@ -40,6 +40,7 @@ image:screenshot_privacy_risk_assessment.gif["Une capture d'écran de l'onglet c
 
 
 
+.Résultat
 Cloud Compliance génère un rapport PDF que vous pouvez consulter et envoyer à d'autres groupes si nécessaire.
 
 

@@ -45,4 +45,5 @@ Il est important d'effectuer cette étape si vous avez utilisé des clés AWS po
 
 
 
+.Résultat
 Votre configuration Cloud Manager est restaurée avec vos comptes, paramètres et environnements de travail.

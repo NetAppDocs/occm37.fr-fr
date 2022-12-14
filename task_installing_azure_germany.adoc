@@ -23,4 +23,5 @@ Azure Marketplace n'est pas disponible dans les régions d'Azure Germany. Vous d
 . link:task_adding_azure_accounts.html["Attribuez des autorisations Azure à Cloud Manager à l'aide d'une entité principale de service"].
 
 
+.Une fois que vous avez terminé
 Cloud Manager est maintenant prêt à déployer Cloud Volumes ONTAP dans la région d'Azure Allemagne, comme dans toute autre région. Cependant, vous pouvez d'abord effectuer une configuration supplémentaire.

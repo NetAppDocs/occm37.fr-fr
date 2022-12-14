@@ -173,6 +173,7 @@ Les clés permettent à Cloud Manager de configurer un compartiment Cloud Storag
 
 
 
+.Résultat
 Cloud Manager déploie le système Cloud Volumes ONTAP. Vous pouvez suivre la progression dans la chronologie.
 
 Si vous rencontrez des problèmes lors du déploiement du système Cloud Volumes ONTAP, consultez le message d'échec. Vous pouvez également sélectionner l'environnement de travail et cliquer sur *recréer l'environnement*.

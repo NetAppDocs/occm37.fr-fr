@@ -24,4 +24,5 @@ Des informations détaillées sur le certificat Cloud Manager s'affichent, y com
 . Cliquez sur *renouveler le certificat HTTPS* et suivez les étapes pour générer une RSC ou installer votre propre certificat signé par une CA.
 
 
+.Résultat
 Cloud Manager utilise le nouveau certificat signé par l'autorité de certification pour fournir un accès HTTPS sécurisé.

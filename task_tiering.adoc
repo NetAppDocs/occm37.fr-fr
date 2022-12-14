@@ -20,27 +20,29 @@ Pour configurer le tiering des données, il vous suffit d'effectuer les opérati
 
 
 
-==== Choisissez une configuration prise en charge
+==== image:number1.png["Numéro 1"] Choisissez une configuration prise en charge
 
 [role="quick-margin-para"]
 La plupart des configurations sont prises en charge. Si votre système Cloud Volumes ONTAP Standard, Premium ou BYOL exécute la version la plus récente, il est préférable de passer à la version précédente. link:task_tiering.html#configurations-that-support-data-tiering["En savoir plus >>"].
 
 
 
-==== Assurez la connectivité entre le Cloud Volumes ONTAP et le stockage objet
+==== image:number2.png["Numéro 2"] Assurez la connectivité entre le Cloud Volumes ONTAP et le stockage objet
 
-* Pour AWS, vous avez besoin d'un terminal VPC vers S3.  for tiering data in AWS,En savoir plus >>.
-* Pour Azure, vous n'aurez rien à faire tant que Cloud Manager dispose des autorisations requises.  for tiering data in Microsoft Azure,En savoir plus >>.
-* Pour GCP, vous devez ajouter un compte GCP à Cloud Manager et configurer le sous-réseau pour Private Google Access.  for tiering data in Google Cloud Platform,En savoir plus >>.
+[role="quick-margin-list"]
+* Pour AWS, vous avez besoin d'un terminal VPC vers S3. <<Requirements for tiering data in AWS,En savoir plus >>>>.
+* Pour Azure, vous n'aurez rien à faire tant que Cloud Manager dispose des autorisations requises. <<Requirements for tiering data in Microsoft Azure,En savoir plus >>>>.
+* Pour GCP, vous devez ajouter un compte GCP à Cloud Manager et configurer le sous-réseau pour Private Google Access. <<Requirements for tiering data in Google Cloud Platform,En savoir plus >>>>.
 
 
 
 
-==== Choisissez une règle de Tiering lors de la création, de la modification ou de la réplication d'un volume
+==== image:number3.png["Numéro 3"] Choisissez une règle de Tiering lors de la création, de la modification ou de la réplication d'un volume
 
 [role="quick-margin-para"]
 Cloud Manager vous invite à choisir une règle de Tiering lors de la création, de la modification ou de la réplication d'un volume.
 
+[role="quick-margin-list"]
 * link:task_tiering.html#tiering-data-from-read-write-volumes["Hiérarchisation des données sur les volumes en lecture-écriture"]
 * link:task_tiering.html#tiering-data-from-data-protection-volumes["Hiérarchisation des données sur les volumes de protection des données"]
 
@@ -176,6 +178,7 @@ Lorsque vous activez le Tiering des données, Cloud Volumes ONTAP transfère les
 
 NOTE: Vous ne pouvez pas modifier le niveau de hiérarchisation dans GCP, car seule la classe de stockage _régionale_ est actuellement prise en charge.
 
+.Description de la tâche
 Le niveau de hiérarchisation est large du système : il n'est pas par volume.
 
 Dans AWS, vous pouvez modifier le niveau de Tiering afin que les données inactives soient déplacées vers l'une des classes de stockage suivantes après 30 jours d'inactivité :

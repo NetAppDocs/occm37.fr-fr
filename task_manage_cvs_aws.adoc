@@ -54,6 +54,7 @@ image:screenshot_cvs_aws_details.gif["Capture d'écran de la page Cloud Volumes 
 
 
 
+.Résultat
 Cloud Manager doit désormais afficher votre configuration Cloud Volumes Service pour AWS sur la page Working Environments.
 
 image:screenshot_cvs_aws_cloud.gif["Capture d'écran de Cloud Volumes Service pour AWS sur la page des environnements de travail."]
@@ -79,6 +80,7 @@ image:screenshot_cvs_discover_region.gif["Capture d'écran présentant l'option 
 
 
 
+.Résultat
 Cloud Manager détecte les informations sur les volumes cloud dans la région sélectionnée.
 
 

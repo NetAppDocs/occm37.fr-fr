@@ -85,8 +85,8 @@ Compression:: Réduit la capacité physique requise pour stocker les données en
 
 Planifiez votre déploiement d'Cloud Volumes ONTAP dans AWS en dimensionnant votre système et en examinant les informations réseau nécessaires à votre saisie.
 
-*  your system in AWS
-*  network information worksheet
+* <<Dimensionnement de votre système dans AWS>>
+* <<Fiche technique d'informations sur le réseau AWS>>
 
 
 
@@ -210,8 +210,8 @@ Lorsque vous lancez Cloud Volumes ONTAP dans AWS, vous devez spécifier des info
 
 Planifiez votre déploiement d'Cloud Volumes ONTAP dans Azure en dimensionnant votre système et en examinant les informations réseau nécessaires à votre saisie.
 
-*  your system in Azure
-*  network information worksheet
+* <<Dimensionnement du système dans Azure>>
+* <<Fiche d'informations sur le réseau Azure>>
 
 
 
@@ -291,8 +291,8 @@ Lorsque vous déployez Cloud Volumes ONTAP dans Azure, vous devez spécifier des
 
 Planifiez votre déploiement de Cloud Volumes ONTAP dans Google Cloud Platform en dimensionnant votre système et en examinant les informations réseau à saisir.
 
-*  your system in GCP
-*  network information worksheet
+* <<Dimensionnement du système dans GCP>>
+* <<Fiche technique d'informations réseau GCP>>
 
 
 

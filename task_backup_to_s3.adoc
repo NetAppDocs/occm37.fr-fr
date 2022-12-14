@@ -30,11 +30,12 @@ Pour commencer rapidement, suivez ces étapes ou faites défiler jusqu'aux secti
 
 
 
-==== Vérifiez la prise en charge de votre configuration
+==== image:number1.png["Numéro 1"] Vérifiez la prise en charge de votre configuration
 
 [role="quick-margin-para"]
 Vérifiez les points suivants :
 
+[role="quick-margin-list"]
 * Cloud Volumes ONTAP 9.4 ou version ultérieure s'exécute dans une région AWS prise en charge : N. Virginie, Oregon, Irlande, Francfort ou Sydney
 * Vous êtes abonné au nouveau https://aws.amazon.com/marketplace/pp/B07QX2QLXX["Offre Cloud Manager Marketplace"^]
 * Le port TCP 5010 est ouvert pour le trafic sortant sur le groupe de sécurité pour Cloud Volumes ONTAP (ouvert par défaut)
@@ -57,8 +58,9 @@ Vérifiez les points suivants :
 
 
 
-==== Activation de Backup vers S3 sur votre système nouveau ou existant
+==== image:number2.png["Numéro 2"] Activation de Backup vers S3 sur votre système nouveau ou existant
 
+[role="quick-margin-list"]
 * Nouveaux systèmes : la fonctionnalité Backup vers S3 est activée par défaut dans l'assistant de l'environnement de travail. Assurez-vous de conserver l'option activée.
 * Systèmes existants : ouvrez l'environnement de travail, cliquez sur l'icône des paramètres de sauvegarde et activez les sauvegardes.
 +
@@ -68,7 +70,7 @@ image:screenshot_backup_to_s3_icon.gif["Copie d'écran affichant l'icône sauveg
 
 
 
-==== Si nécessaire, modifiez la stratégie de sauvegarde
+==== image:number3.png["Numéro 3"] Si nécessaire, modifiez la stratégie de sauvegarde
 
 [role="quick-margin-para"]
 La règle par défaut sauvegarde les volumes tous les jours et conserve 30 copies de sauvegarde de chaque volume. Si nécessaire, vous pouvez modifier le nombre de copies de sauvegarde à conserver.
@@ -78,7 +80,7 @@ image:screenshot_backup_to_s3_settings.gif["Une capture d'écran montre les para
 
 
 
-==== Restaurez vos données à la demande
+==== image:number4.png["Numéro 4"] Restaurez vos données à la demande
 
 [role="quick-margin-para"]
 En haut de Cloud Manager, cliquez sur *Backup & Restore*, sélectionnez un volume, sélectionnez une sauvegarde, puis restaurez les données de la sauvegarde vers un nouveau volume.
@@ -160,13 +162,14 @@ image:screenshot_backup_to_s3.gif["Le présente l'option Backup vers S3 dans l'a
 . Complétez les pages de l'assistant pour déployer le système.
 
 
-La fonctionnalité de sauvegarde sur S3 est activée sur le système. Elle sauvegarde les volumes tous les jours et conserve 30 copies de sauvegarde.  the backup retention,Découvrez comment modifier la conservation des sauvegardes.
+.Résultat
+La fonctionnalité de sauvegarde sur S3 est activée sur le système. Elle sauvegarde les volumes tous les jours et conserve 30 copies de sauvegarde. <<Modification de la conservation des sauvegardes,Découvrez comment modifier la conservation des sauvegardes>>.
 
 
 
 == Activation des sauvegardes dans S3 sur un système existant
 
-Vous pouvez activer les sauvegardes sur S3 sur un système Cloud Volumes ONTAP existant, tant que vous n'avez pas exécuté de configuration prise en charge. Pour plus de détails, voir .
+Vous pouvez activer les sauvegardes sur S3 sur un système Cloud Volumes ONTAP existant, tant que vous n'avez pas exécuté de configuration prise en charge. Pour plus de détails, voir <<De formation>>.
 
 .Étapes
 . Ouvrir l'environnement de travail.
@@ -181,6 +184,7 @@ image:screenshot_backup_to_s3_settings.gif["Une capture d'écran montre les para
 
 
 
+.Résultat
 La fonctionnalité Backup vers S3 commence à effectuer les sauvegardes initiales de chaque volume.
 
 

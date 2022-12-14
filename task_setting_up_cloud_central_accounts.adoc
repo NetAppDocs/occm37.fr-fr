@@ -34,6 +34,7 @@ image:screenshot_account_settings_menu.gif["Capture d'écran affichant l'option 
 . Entrez un nom pour l'espace de travail et cliquez sur *Ajouter*.
 
 
+.Une fois que vous avez terminé
 Vous pouvez désormais associer des utilisateurs et des connecteurs de service à l'espace de travail.
 
 
@@ -59,6 +60,7 @@ image:screenshot_associate_user.gif["Capture d'écran qui montre comment associe
 . Cliquez sur *associer utilisateur*.
 
 
+.Résultat
 L'utilisateur doit recevoir un e-mail de la part de NetApp Cloud Central intitulé « Account Association ». Il contient les informations nécessaires pour accéder à Cloud Manager.
 
 
@@ -77,6 +79,7 @@ image:screenshot_associate_user_workspace.gif["Capture d'écran qui montre le me
 . Sélectionnez un ou plusieurs espaces de travail et cliquez sur *appliquer*.
 
 
+.Résultat
 Il est désormais possible d'accéder à ces espaces de travail à partir de Cloud Manager, tant que le connecteur de service était également associé aux espaces de travail.
 
 
@@ -96,4 +99,5 @@ link:concept_cloud_central_accounts.html#users-workspaces-and-service-connectors
 . Sélectionnez un ou plusieurs espaces de travail et cliquez sur *appliquer*.
 
 
+.Résultat
 Les administrateurs d'espace de travail peuvent désormais accéder aux espaces de travail associés, tant que l'utilisateur a également été associé à l'espace de travail.

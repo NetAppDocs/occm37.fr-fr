@@ -23,8 +23,9 @@ Si vous déployez des clusters Kubernetes à l'aide du https://cloud.netapp.com/
 
 
 
-=== Vérifiez la connectivité réseau
+=== image:number1.png["Numéro 1"] Vérifiez la connectivité réseau
 
+[role="quick-margin-list"]
 . Une connexion réseau doit être disponible entre Cloud Manager et les clusters Kubernetes, et depuis les clusters Kubernetes vers les systèmes ONTAP.
 . Lors de l'installation de Trident, Cloud Manager requiert une connexion Internet sortante pour accéder aux terminaux suivants :
 +
@@ -37,7 +38,7 @@ Cloud Manager installe Trident sur un cluster Kubernetes lorsque vous connectez 
 
 
 
-=== Téléchargez les fichiers de configuration Kubernetes dans Cloud Manager
+=== image:number2.png["Numéro 2"] Téléchargez les fichiers de configuration Kubernetes dans Cloud Manager
 
 [role="quick-margin-para"]
 Pour chaque cluster Kubernetes, l'administrateur du compte doit télécharger un fichier de configuration (kubeconfig) au format YAML. Une fois le fichier téléchargé, Cloud Manager vérifie la connexion au cluster et enregistre une copie chiffrée du fichier kubeconfig.
@@ -50,7 +51,7 @@ image:screenshot_kubernetes_setup.gif["Une capture d'écran affiche l'onglet clu
 
 
 
-=== Connectez vos environnements de travail aux clusters Kubernetes
+=== image:number3.png["Numéro 3"] Connectez vos environnements de travail aux clusters Kubernetes
 
 [role="quick-margin-para"]
 Dans l'environnement de travail, cliquez sur l'icône Kubernetes et suivez les invites. Vous pouvez connecter différents clusters à différents systèmes ONTAP et plusieurs clusters au même système ONTAP.
@@ -63,11 +64,12 @@ image:screenshot_kubernetes_connect.gif["Capture d'écran de l'icône Kubernetes
 
 
 
-=== Commencez le provisionnement des volumes persistants
+=== image:number4.png["Numéro 4"] Commencez le provisionnement des volumes persistants
 
 [role="quick-margin-para"]
 Demandez et gérez les volumes persistants à l'aide d'interfaces et de constructions Kubernetes natives. Cloud Manager crée quatre classes de stockage Kubernetes que vous pouvez utiliser pour le provisionnement des volumes persistants :
 
+[role="quick-margin-list"]
 * *netapp-fichier* : pour liaison de volumes persistants aux systèmes ONTAP à un seul nœud
 * *netapp-file-san* : pour les volumes persistants iSCSI sur des systèmes ONTAP à un seul nœud
 * *netapp-file-redondant* : pour la liaison de volumes persistants aux paires HA ONTAP
@@ -77,6 +79,7 @@ Demandez et gérez les volumes persistants à l'aide d'interfaces et de construc
 [role="quick-margin-para"]
 Cloud Manager configure Trident pour qu'il utilise par défaut les options de provisionnement suivantes :
 
+[role="quick-margin-list"]
 * Volumes fins
 * La règle Snapshot par défaut
 * Répertoire Snapshot accessible
