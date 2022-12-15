@@ -1993,7 +1993,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-17 07:41:23 +0000">11/17/2022</time>
+    <time datetime="2022-12-14 18:14:49 +0000">12/14/2022</time>
     
   
 
@@ -2014,33 +2014,33 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="choisissez-une-configuration-prise-en-charge">Choisissez une configuration prise en charge</h4>
+<h4 id="choisissez-une-configuration-prise-en-charge"><span class="image"><img src="./media/number1.png" alt="Numéro 1"></span> Choisissez une configuration prise en charge</h4>
 <div class="paragraph quick-margin-para">
 <p>La plupart des configurations sont prises en charge. Si votre système Cloud Volumes ONTAP Standard, Premium ou BYOL exécute la version la plus récente, il est préférable de passer à la version précédente. <a href="task_tiering.html#configurations-that-support-data-tiering">"En savoir plus &gt;&gt;"</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="assurez-la-connectivité-entre-le-cloud-volumes-ontap-et-le-stockage-objet">Assurez la connectivité entre le Cloud Volumes ONTAP et le stockage objet</h4>
-<div class="ulist">
+<h4 id="assurez-la-connectivité-entre-le-cloud-volumes-ontap-et-le-stockage-objet"><span class="image"><img src="./media/number2.png" alt="Numéro 2"></span> Assurez la connectivité entre le Cloud Volumes ONTAP et le stockage objet</h4>
+<div class="ulist quick-margin-list">
 <ul>
 <li>
-<p>Pour AWS, vous avez besoin d&#8217;un terminal VPC vers S3.  for tiering data in AWS,En savoir plus &gt;&gt;.</p>
+<p>Pour AWS, vous avez besoin d&#8217;un terminal VPC vers S3. <a href="#Requirements for tiering data in AWS">En savoir plus </a>&gt;&gt;.</p>
 </li>
 <li>
-<p>Pour Azure, vous n&#8217;aurez rien à faire tant que Cloud Manager dispose des autorisations requises.  for tiering data in Microsoft Azure,En savoir plus &gt;&gt;.</p>
+<p>Pour Azure, vous n&#8217;aurez rien à faire tant que Cloud Manager dispose des autorisations requises. <a href="#Requirements for tiering data in Microsoft Azure">En savoir plus </a>&gt;&gt;.</p>
 </li>
 <li>
-<p>Pour GCP, vous devez ajouter un compte GCP à Cloud Manager et configurer le sous-réseau pour Private Google Access.  for tiering data in Google Cloud Platform,En savoir plus &gt;&gt;.</p>
+<p>Pour GCP, vous devez ajouter un compte GCP à Cloud Manager et configurer le sous-réseau pour Private Google Access. <a href="#Requirements for tiering data in Google Cloud Platform">En savoir plus </a>&gt;&gt;.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="choisissez-une-règle-de-tiering-lors-de-la-création-de-la-modification-ou-de-la-réplication-dun-volume">Choisissez une règle de Tiering lors de la création, de la modification ou de la réplication d&#8217;un volume</h4>
+<h4 id="choisissez-une-règle-de-tiering-lors-de-la-création-de-la-modification-ou-de-la-réplication-dun-volume"><span class="image"><img src="./media/number3.png" alt="Numéro 3"></span> Choisissez une règle de Tiering lors de la création, de la modification ou de la réplication d&#8217;un volume</h4>
 <div class="paragraph quick-margin-para">
 <p>Cloud Manager vous invite à choisir une règle de Tiering lors de la création, de la modification ou de la réplication d&#8217;un volume.</p>
 </div>
-<div class="ulist">
+<div class="ulist quick-margin-list">
 <ul>
 <li>
 <p><a href="task_tiering.html#tiering-data-from-read-write-volumes">"Hiérarchisation des données sur les volumes en lecture-écriture"</a></p>
@@ -2289,6 +2289,7 @@ Vous ne pouvez pas modifier le niveau de hiérarchisation dans GCP, car seule la
 </table>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Le niveau de hiérarchisation est large du système : il n&#8217;est pas par volume.</p>
 </div>
 <div class="paragraph">
